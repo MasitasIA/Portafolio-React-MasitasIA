@@ -28,6 +28,7 @@ export default function App() {
             <a href="#sobre-mi" className="hover:text-indigo-400 transition-colors">Sobre Mí</a>
             <a href="#skills" className="hover:text-indigo-400 transition-colors">Habilidades</a>
             <a href="#proyectos" className="hover:text-indigo-400 transition-colors">Proyectos</a>
+            <a href="#educacion" className="hover:text-indigo-400 transition-colors">Educación</a>
           </nav>
 
           <button 
@@ -44,6 +45,7 @@ export default function App() {
             <a href="#sobre-mi" onClick={closeMenu} className="text-xl font-medium text-zinc-300 hover:text-indigo-400 transition-colors">Sobre Mí</a>
             <a href="#skills" onClick={closeMenu} className="text-xl font-medium text-zinc-300 hover:text-indigo-400 transition-colors">SKILLS</a>
             <a href="#proyectos" onClick={closeMenu} className="text-xl font-medium text-zinc-300 hover:text-indigo-400 transition-colors">Proyectos</a>
+            <a href="#educacion" onClick={closeMenu} className="text-xl font-medium text-zinc-300 hover:text-indigo-400 transition-colors">Educación</a>
           </nav>
         )}
         
@@ -206,7 +208,7 @@ export default function App() {
 
             {/* Proyecto 3: Portafolio Personal */}
             <div className="bg-zinc-800 rounded-xl shadow-md border border-zinc-700 overflow-hidden flex flex-col hover:border-zinc-500 transition-colors group">
-              <div className="w-full h-48 bg-zinc-900 overflow-hidden relative p-0 flex items-center justify-center">
+              <div className="w-full h-100 bg-zinc-900 overflow-hidden relative flex items-center justify-center">
                 <img 
                   src="/PORTADA.png" 
                   alt="Portafolio Personal / MasitasIA" 
@@ -233,10 +235,98 @@ export default function App() {
             </div>
 
           </div>
+        </section>
+        
+        {/* SECCIÓN: EDUCACIÓN */}
+        <section id="educacion" className="scroll-mt-32">
+          <h2 className="text-2xl font-bold mb-4 text-zinc-100">Educación</h2>
+            <div className='bg-zinc-800 rounded-xl'>
+              <div className='p-6 border-b border-zinc-700'>
+                <h3 className='text-xl font-bold text-zinc-100'>Tecnicatura en Data Science</h3>
+                <p className='text-zinc-400'>Teclab "Instituo Técnico Superior" - <b><span className="text-indigo-400">2025/PRESENTE</span></b></p>
+              </div>
+              <div className='p-6'>
+                <h3 className='text-xl font-bold text-zinc-100'>Bachiller en Economía y Administración</h3>
+                <p className='text-zinc-400'>Escuela Secundaria Nº5 "Coronel Marcelino E Freyre" - <b><span className="text-indigo-400">2019/2025</span></b></p>
+              </div>
+            </div>
+        </section>
 
+{/* SECCIÓN: ESTADÍSTICAS MANUALES */}
+        <section id="estadisticas" className="scroll-mt-32">
+          <h2 className="text-2xl font-bold mb-6 text-zinc-100">Lenguajes Más Usados</h2>
+          
+          <div className="bg-zinc-800 rounded-xl shadow-md border border-zinc-700 p-8 hover:border-zinc-500 transition-colors">
+            
+            <p className="text-zinc-400 mb-8 text-justify">
+              Basado en la actividad reciente de mis repositorios en GitHub.
+            </p>
+
+            <div className="flex flex-col gap-6">
+              
+              {/* Barra 1: Python */}
+              <div>
+                <div className="flex justify-between text-sm font-medium mb-2">
+                  <span className="text-zinc-200 flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-[#3572A5]"></span> Python
+                  </span>
+                  <span className="text-zinc-400">45%</span>
+                </div>
+                <div className="w-full bg-zinc-900 rounded-full h-2.5">
+                  <div className="bg-[#3572A5] h-2.5 rounded-full" style={{ width: '45%' }}></div>
+                </div>
+              </div>
+
+              {/* Barra 2: TypeScript */}
+              <div>
+                <div className="flex justify-between text-sm font-medium mb-2">
+                  <span className="text-zinc-200 flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-[#3178C6]"></span> TypeScript
+                  </span>
+                  <span className="text-zinc-400">30%</span>
+                </div>
+                <div className="w-full bg-zinc-900 rounded-full h-2.5">
+                  <div className="bg-[#3178C6] h-2.5 rounded-full" style={{ width: '30%' }}></div>
+                </div>
+              </div>
+
+              {/* Barra 3: Kotlin */}
+              <div>
+                <div className="flex justify-between text-sm font-medium mb-2">
+                  <span className="text-zinc-200 flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-[#A97BFF]"></span> Kotlin
+                  </span>
+                  <span className="text-zinc-400">15%</span>
+                </div>
+                <div className="w-full bg-zinc-900 rounded-full h-2.5">
+                  <div className="bg-[#A97BFF] h-2.5 rounded-full" style={{ width: '15%' }}></div>
+                </div>
+              </div>
+
+              {/* Barra 4: CSS */}
+              <div>
+                <div className="flex justify-between text-sm font-medium mb-2">
+                  <span className="text-zinc-200 flex items-center gap-2">
+                    <span className="w-3 h-3 rounded-full bg-[#563D7C]"></span> CSS / Tailwind
+                  </span>
+                  <span className="text-zinc-400">10%</span>
+                </div>
+                <div className="w-full bg-zinc-900 rounded-full h-2.5">
+                  <div className="bg-[#563D7C] h-2.5 rounded-full" style={{ width: '10%' }}></div>
+                </div>
+              </div>
+
+            </div>
+            
+          </div>
         </section>
 
       </main>
+
+      {/* FOOTER */}
+      <footer className="bg-zinc-950 text-center py-6 border-t border-zinc-800">
+        <p className="text-sm text-zinc-500">&copy; 2026 Nereo Schmidt. Puedes modificar libremente esta web para uso personal o comercial.</p>
+      </footer>
 
     </div>
   )
