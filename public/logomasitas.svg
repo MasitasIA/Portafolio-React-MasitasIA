@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="10"
+   height="10"
+   viewBox="0 0 2.6458333 2.6458333"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="logomasitas.svg"
+   inkscape:export-filename="logomasitas.png"
+   inkscape:export-xdpi="127"
+   inkscape:export-ydpi="127"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="34.46967"
+     inkscape:cx="8.5872595"
+     inkscape:cy="3.8729701"
+     inkscape:window-width="1920"
+     inkscape:window-height="1057"
+     inkscape:window-x="1592"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="0.26458333"
+       spacingy="0.26458333"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       enabled="true"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g6"
+       style="stroke-width:0.132292;stroke-dasharray:none"
+       transform="matrix(3.9974818,0,0,3.9974818,-3.9662512,-3.9654183)">
+      <rect
+         style="fill:#da1629;fill-opacity:1;fill-rule:evenodd;stroke:#da1629;stroke-width:0.132292;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect6"
+         width="0.26499999"
+         height="0.26458326"
+         x="1.0583333"
+         y="1.3229166" />
+      <rect
+         style="fill:#da1629;fill-opacity:1;fill-rule:evenodd;stroke:#da1629;stroke-width:0.132292;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect6-1"
+         width="0.26499999"
+         height="0.26458326"
+         x="1.3229166"
+         y="1.3229166" />
+      <rect
+         style="fill:#da1629;fill-opacity:1;fill-rule:evenodd;stroke:#da1629;stroke-width:0.132292;stroke-linecap:round;stroke-dasharray:none;stroke-opacity:1"
+         id="rect6-2"
+         width="0.26499999"
+         height="0.26458326"
+         x="1.3229166"
+         y="1.0583333" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-weight:bold;font-size:0.705556px;line-height:1.25;font-family:BoldPixels;-inkscape-font-specification:'BoldPixels Bold';fill:#f9f9f9;stroke-width:0.264583"
+       x="0.26441681"
+       y="2.3805835"
+       id="text6"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         style="font-size:0.705556px;fill:#f9f9f9;stroke-width:0.264583"
+         x="0.26441681"
+         y="2.3805835">N.S</tspan></text>
+  </g>
+</svg>
