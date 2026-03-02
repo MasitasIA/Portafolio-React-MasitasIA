@@ -147,7 +147,7 @@ export default function App() {
             
             {/* Proyecto 1: Bot Gemini */}
             <div className="bg-zinc-800 rounded-xl shadow-md border border-zinc-700 overflow-hidden flex flex-col hover:border-zinc-500 transition-colors group">
-              <div className="w-full h-48 bg-zinc-900 overflow-hidden relative p-4 flex items-center justify-center">
+              <div className="w-full h-48 bg-zinc-900 overflow-hidden relative p-0 flex items-center justify-center">
                 <img 
                   src="/discordbotpython.png" 
                   alt="Bot Discord Gemini" 
@@ -176,7 +176,7 @@ export default function App() {
             {/* Proyecto 2: ChatGlobo */}
             <div className="bg-zinc-800 rounded-xl shadow-md border border-zinc-700 overflow-hidden flex flex-col hover:border-zinc-500 transition-colors group">
               
-              <div className="w-full h-48 bg-zinc-900 overflow-hidden relative p-4 flex items-center justify-center">
+              <div className="w-full h-48 bg-zinc-900 overflow-hidden relative p-2 flex items-center justify-center">
                 <img 
                   src="/chatglobo.png" 
                   alt="ChatGlobo" 
@@ -204,23 +204,23 @@ export default function App() {
               </div>
             </div>
 
-            {/* Proyecto 3: Prueba */}
+            {/* Proyecto 3: Portafolio Personal */}
             <div className="bg-zinc-800 rounded-xl shadow-md border border-zinc-700 overflow-hidden flex flex-col hover:border-zinc-500 transition-colors group">
-              <div className="w-full h-48 bg-zinc-900 overflow-hidden relative p-4 flex items-center justify-center">
+              <div className="w-full h-48 bg-zinc-900 overflow-hidden relative p-0 flex items-center justify-center">
                 <img 
-                  src="/#" 
-                  alt="#" 
+                  src="/PORTADA.png" 
+                  alt="Portafolio Personal / MasitasIA" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               
               <div className="p-6 flex flex-col grow">
-                <h3 className="text-xl font-bold mb-2 text-zinc-100">Prueba <span className="text-indigo-400">Prueba</span></h3>
-                <p className="text-zinc-400 mb-4">Carta de prueba</p>
+                <h3 className="text-xl font-bold mb-2 text-zinc-100">Portafolio Personal - <span className="text-indigo-400">TypeScript</span></h3>
+                <p className="text-zinc-400 mb-4">Este repositorio guarda mi portafolio personal desarrollado con React y TypeScript, es esta misma web que estás viendo.</p>
               
                 <div className="mt-auto">
                   <a 
-                    href="#" 
+                    href="https://github.com/MasitasIA/Portafolio-React-MasitasIA" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-zinc-900 hover:bg-zinc-700 text-zinc-200 border border-zinc-600 px-4 py-2 rounded-lg font-medium transition-colors"

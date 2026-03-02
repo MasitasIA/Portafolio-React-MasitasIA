@@ -7,6 +7,9 @@
 
 Este es el código fuente de mi portafolio personal, diseñado para mostrar mi experiencia, habilidades y proyectos destacados en el desarrollo de software. Es una Single Page Application (SPA) construida con un enfoque en el rendimiento, la accesibilidad y el diseño responsivo.
 
+## Demostración de la Web
+![Captura de demostración del diseño de la Web - Portafolio](public/PORTADA.png)
+
 ## ✨ Características
 
 - **Diseño Responsivo:** Adaptable a dispositivos móviles, tablets y escritorio.
