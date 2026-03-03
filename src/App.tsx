@@ -3,7 +3,7 @@ import './index.css'
 
 import { SiReact, SiVite, SiTailwindcss, SiPython, SiDjango, SiKotlin, SiHtml5, SiCss3, SiJavascript, SiTypescript} from 'react-icons/si'
 import { FaDatabase } from 'react-icons/fa'
-import { Github, Mail, MessageCircle, Linkedin, Menu, X, Globe } from 'lucide-react'
+import { Github, Mail, MessageCircle, Linkedin, Menu, X, Globe, Play} from 'lucide-react'
 
 // 1. DICCIONARIO DE TRADUCCIONES
 const translations = {
@@ -16,7 +16,7 @@ const translations = {
     },
     skills: { title: 'Habilidades' },
     projects: { 
-      title: 'Proyectos', repo: 'Ver Repositorio',
+      title: 'Proyectos', repo: 'Ver Repositorio', demo: "Demo",
       p1Desc: 'Bot de Discord que utiliza la API de Gemini para generar respuestas inteligentes a las preguntas de los usuarios, además de incluir una api generadora de imágenes con Lenguaje Humano.',
       p2Desc: 'Plugin de Minecraft, hecho en PaperMC, para las versiones 1.21 en adelante. Agrega globos de textos interactivos para aumentar la inmersión del jugador.',
       p3Desc: 'Este repositorio guarda mi portafolio personal desarrollado con React y TypeScript, es esta misma web que estás viendo.'
@@ -34,7 +34,7 @@ const translations = {
     },
     skills: { title: 'Skills' },
     projects: { 
-      title: 'Projects', repo: 'View Repository',
+      title: 'Projects', repo: 'View Repository', demo: "Demo",
       p1Desc: 'Discord bot that uses the Gemini API to generate intelligent responses to user questions, plus an image generation API using natural language.',
       p2Desc: 'Minecraft plugin, made in PaperMC, for versions 1.21 and above. Adds interactive text balloons to increase player immersion.',
       p3Desc: 'This repository holds my personal portfolio developed with React and TypeScript, which is the website you are currently viewing.'
@@ -52,7 +52,7 @@ const translations = {
     },
     skills: { title: 'Competenze' },
     projects: { 
-      title: 'Progetti', repo: 'Vedi Repository',
+      title: 'Progetti', repo: 'Vedi Repository', demo: "Demo",
       p1Desc: 'Bot di Discord che utilizza l\'API di Gemini per generare risposte intelligenti alle domande degli utenti, oltre a includere un\'API per la generazione di immagini con linguaggio naturale.',
       p2Desc: 'Plugin per Minecraft, realizzato in PaperMC, per le versioni 1.21 e successive. Aggiunge palloncini di testo interattivi per aumentare l\'immersione del giocatore.',
       p3Desc: 'Questo repository contiene il mio portfolio personale sviluppato con React e TypeScript, che è il sito web che stai visualizzando in questo momento.'
@@ -210,7 +210,7 @@ export default function App() {
               <div className="p-6 flex flex-col grow">
                 <h3 className="text-xl font-bold mb-2 text-zinc-100">Bot Discord Gemini - <span className="text-indigo-400">Python</span></h3>
                 <p className="text-zinc-400 mb-4">{t.projects.p1Desc}</p>
-                <div className="mt-auto">
+                <div className="mt-auto, flex flex-col gap-2">
                   <a href="https://github.com/MasitasIA/Discord-Gemini-Bot" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-zinc-900 hover:bg-zinc-700 text-zinc-200 border border-zinc-600 px-4 py-2 rounded-lg font-medium transition-colors">
                     <Github className="w-5 h-5" /> {t.projects.repo}
                   </a>
@@ -225,10 +225,13 @@ export default function App() {
               <div className="p-6 flex flex-col grow">
                 <h3 className="text-xl font-bold mb-2 text-zinc-100">ChatGlobo - <span className="text-indigo-400">Kotlin</span></h3>
                 <p className="text-zinc-400 mb-6 grow text-justify">{t.projects.p2Desc}</p>
-                <div className="mt-auto">
+                <div className="mt-auto, flex flex-col gap-2">
                   <a href="https://github.com/MasitasIA/ChatGlobo_Kotlin" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-zinc-900 hover:bg-zinc-700 text-zinc-200 border border-zinc-600 px-4 py-2 rounded-lg font-medium transition-colors">
                     <Github className="w-5 h-5" /> {t.projects.repo}
                   </a>
+                  <a href="https://hangar.papermc.io/MasitasIA/ChatGlobo" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-zinc-900 hover:bg-zinc-700 text-zinc-200 border border-zinc-600 px-4 py-2 rounded-lg font-medium transition-colors">
+                    <Play className="w-5 h-5" /> {t.projects.demo}
+                  </a>                  
                 </div>
               </div>
             </div>
@@ -240,7 +243,7 @@ export default function App() {
               <div className="p-6 flex flex-col grow">
                 <h3 className="text-xl font-bold mb-2 text-zinc-100">Portafolio Personal - <span className="text-indigo-400">TypeScript</span></h3>
                 <p className="text-zinc-400 mb-4">{t.projects.p3Desc}</p>
-                <div className="mt-auto">
+                <div className="mt-auto, flex flex-col gap-2">
                   <a href="https://github.com/MasitasIA/Portafolio-React-MasitasIA" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-zinc-900 hover:bg-zinc-700 text-zinc-200 border border-zinc-600 px-4 py-2 rounded-lg font-medium transition-colors">
                     <Github className="w-5 h-5" /> {t.projects.repo}
                   </a>
