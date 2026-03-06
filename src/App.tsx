@@ -5,7 +5,10 @@ import { SiReact, SiVite, SiTailwindcss, SiPython, SiDjango, SiKotlin, SiHtml5, 
 import { FaDatabase } from 'react-icons/fa'
 import { Github, Mail, MessageCircle, Linkedin, Menu, X, Globe, Play} from 'lucide-react'
 
-// 1. DICCIONARIO DE TRADUCCIONES
+// IMPORTAMOS EL COMPONENTE DE NIEVE
+import PixelSnow from './PixelSnow.tsx'
+
+// DICCIONARIO DE TRADUCCIONES
 const translations = {
   es: {
     nav: { inicio: 'Inicio', sobreMi: 'Sobre Mí', skills: 'Habilidades', proyectos: 'Proyectos', educacion: 'Educación' },
@@ -63,23 +66,32 @@ const translations = {
   }
 }
 
-// Tipo para TypeScript para que no se queje
+// TIPOS DE IDIOMA
 type Lang = 'es' | 'en' | 'it'
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   
-  // 2. ESTADO DEL IDIOMA
   const [lang, setLang] = useState<Lang>('es')
   
-  // Variable "t" (traducción) que apunta al idioma seleccionado
   const t = translations[lang]
 
   const closeMenu = () => setIsMenuOpen(false)
 
   return (
-    <div className="bg-zinc-900 text-zinc-100 font-sans min-h-screen">
+    <div className="bg-zinc-900 text-zinc-100 font-sans min-h-screen relative">
       
+      {/* --- EFECTO DE FONDO: PIXEL SNOW --- */}
+      <div className="fixed inset-0 z-0 pointer-events-none opacity-50">
+        <PixelSnow 
+          color="#ffffff" 
+          speed={1.25} 
+          pixelResolution={500} 
+          density={0.3}
+          variant="snowflake" 
+        />
+      </div>
+
       {/* HEADER FIJO */}
       <header className="fixed top-0 w-full bg-zinc-950/90 backdrop-blur-md shadow-sm border-b border-zinc-800 z-50 px-8 py-4 transition-all">
         
@@ -136,189 +148,191 @@ export default function App() {
         
       </header>
 
-      {/* CONTENIDO PRINCIPAL */}
-      <main className="max-w-5xl mx-auto px-6 pt-32 pb-20 flex flex-col gap-16">
-        
-        {/* SECCIÓN: INICIO */}
-        <section id="inicio" className="scroll-mt-32">
-          <div className="border-2 border-zinc-700 rounded-3xl p-8 md:p-12 relative flex flex-col gap-6">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-2">{t.hero.greeting} <span className="font-bold text-indigo-400">Nereo Schmidt</span>. 👋</h2>
-              <p className="text-xl text-zinc-400">{t.hero.role}</p>
-            </div>
+      {/* CONTENIDO PRINCIPAL Y FOOTER ENVUELTOS EN Z-10 PARA ESTAR SOBRE LA NIEVE */}
+      <div className="relative z-10">
+        <main className="max-w-5xl mx-auto px-6 pt-32 pb-20 flex flex-col gap-16">
+          
+          {/* SECCIÓN: INICIO */}
+          <section id="inicio" className="scroll-mt-32">
+            <div className="border-2 border-zinc-700 rounded-3xl p-8 md:p-12 relative flex flex-col gap-6 bg-zinc-900/80 backdrop-blur-sm">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold mb-2">{t.hero.greeting} <span className="font-bold text-indigo-400">Nereo Schmidt</span>. 👋</h2>
+                <p className="text-xl text-zinc-400">{t.hero.role}</p>
+              </div>
 
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-6 mt-4">
-              <a 
-              href="/Nereo_Schmidt_CV_Español.pdf" 
-              download="Nereo_Schmidt_CV_Español.pdf"
-              className="border-2 border-zinc-500 hover:bg-zinc-800 text-zinc-100 px-6 py-2 rounded-lg font-medium transition-all w-full sm:w-auto text-center inline-block"
-              >
-                {t.hero.cv}
-              </a>
+              <div className="flex flex-col sm:flex-row justify-between items-center gap-6 mt-4">
+                <a 
+                href="/Nereo_Schmidt_CV_Español.pdf" 
+                download="Nereo_Schmidt_CV_Español.pdf"
+                className="border-2 border-zinc-500 hover:bg-zinc-800 text-zinc-100 px-6 py-2 rounded-lg font-medium transition-all w-full sm:w-auto text-center inline-block"
+                >
+                  {t.hero.cv}
+                </a>
 
-              <div className="flex gap-4">
-                <a href="https://github.com/MasitasIA" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border-2 border-zinc-500 flex items-center justify-center hover:bg-zinc-800 transition-all text-zinc-100 group"><Github className="w-6 h-6 group-hover:scale-110 transition-transform" /></a>
-                <a href="https://wa.me/5492923519367" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border-2 border-zinc-500 flex items-center justify-center hover:bg-zinc-800 transition-all text-zinc-100 group"><MessageCircle className="w-6 h-6 group-hover:scale-110 transition-transform" /></a>
-                <a href="mailto:nereoschmidt@gmail.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border-2 border-zinc-500 flex items-center justify-center hover:bg-zinc-800 transition-all text-zinc-100 group"><Mail className="w-6 h-6 group-hover:scale-110 transition-transform" /></a>
-                <a href="https://www.linkedin.com/in/nereoschmidt/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border-2 border-zinc-500 flex items-center justify-center hover:bg-zinc-800 transition-all text-zinc-100 group"><Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" /></a>
+                <div className="flex gap-4">
+                  <a href="https://github.com/MasitasIA" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border-2 border-zinc-500 flex items-center justify-center hover:bg-zinc-800 transition-all text-zinc-100 group"><Github className="w-6 h-6 group-hover:scale-110 transition-transform" /></a>
+                  <a href="https://wa.me/5492923519367" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border-2 border-zinc-500 flex items-center justify-center hover:bg-zinc-800 transition-all text-zinc-100 group"><MessageCircle className="w-6 h-6 group-hover:scale-110 transition-transform" /></a>
+                  <a href="mailto:nereoschmidt@gmail.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border-2 border-zinc-500 flex items-center justify-center hover:bg-zinc-800 transition-all text-zinc-100 group"><Mail className="w-6 h-6 group-hover:scale-110 transition-transform" /></a>
+                  <a href="https://www.linkedin.com/in/nereoschmidt/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full border-2 border-zinc-500 flex items-center justify-center hover:bg-zinc-800 transition-all text-zinc-100 group"><Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" /></a>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* SECCIÓN: SOBRE MÍ */}
-        <section id="sobre-mi" className="scroll-mt-32">
-          <h2 className="text-2xl font-bold mb-4 text-zinc-100">{t.about.title}</h2>
-          <p className="text-justify text-lg text-zinc-400 leading-relaxed max-w-4xl">{t.about.text}</p>
-        </section>
+          {/* SECCIÓN: SOBRE MÍ */}
+          <section id="sobre-mi" className="scroll-mt-32">
+            <h2 className="text-2xl font-bold mb-4 text-zinc-100">{t.about.title}</h2>
+            <p className="text-justify text-lg text-zinc-400 leading-relaxed max-w-4xl">{t.about.text}</p>
+          </section>
 
-        {/* SECCIÓN: SKILLS */}
-        <section id="skills" className="scroll-mt-32">
-          <h2 className="text-2xl font-bold mb-6 text-zinc-100">{t.skills.title}</h2>
-          <div className="justify-center flex flex-wrap gap-4">
-            {[
-              { nombre: 'React', icono: SiReact, color: 'text-[#61DAFB]' },
-              { nombre: 'Vite', icono: SiVite, color: 'text-[#646CFF]' },
-              { nombre: 'TailwindCSS', icono: SiTailwindcss, color: 'text-[#38B2AC]' },
-              { nombre: 'Python', icono: SiPython, color: 'text-[#3776AB]' },
-              { nombre: 'Django', icono: SiDjango, color: 'text-[#44B78B]' },
-              { nombre: 'SQL', icono: FaDatabase, color: 'text-[#F29111]' },
-              { nombre: 'Kotlin', icono: SiKotlin, color: 'text-[#F29111]' },
-              { nombre: 'HTML', icono: SiHtml5, color: 'text-[#F29111]' },
-              { nombre: 'CSS', icono: SiCss3, color: 'text-[#F29111]' },
-              { nombre: 'JavaScript', icono: SiJavascript, color: 'text-[#F7DF1E]' },
-              { nombre: 'TypeScript', icono: SiTypescript, color: 'text-[#F7DF1E]' },
-            ].map((skill) => (
-              <span key={skill.nombre} className="flex items-center gap-2 px-4 py-2 bg-zinc-800 text-zinc-200 border border-zinc-700 rounded-full font-semibold shadow-sm hover:border-zinc-500 transition-colors cursor-default">
-                <skill.icono className={`w-5 h-5 ${skill.color}`} />
-                {skill.nombre}
-              </span>
-            ))}
-          </div>
-        </section>
+          {/* SECCIÓN: SKILLS */}
+          <section id="skills" className="scroll-mt-32">
+            <h2 className="text-2xl font-bold mb-6 text-zinc-100">{t.skills.title}</h2>
+            <div className="justify-center flex flex-wrap gap-4">
+              {[
+                { nombre: 'React', icono: SiReact, color: 'text-[#61DAFB]' },
+                { nombre: 'Vite', icono: SiVite, color: 'text-[#646CFF]' },
+                { nombre: 'TailwindCSS', icono: SiTailwindcss, color: 'text-[#38B2AC]' },
+                { nombre: 'Python', icono: SiPython, color: 'text-[#3776AB]' },
+                { nombre: 'Django', icono: SiDjango, color: 'text-[#44B78B]' },
+                { nombre: 'SQL', icono: FaDatabase, color: 'text-[#F29111]' },
+                { nombre: 'Kotlin', icono: SiKotlin, color: 'text-[#F29111]' },
+                { nombre: 'HTML', icono: SiHtml5, color: 'text-[#F29111]' },
+                { nombre: 'CSS', icono: SiCss3, color: 'text-[#F29111]' },
+                { nombre: 'JavaScript', icono: SiJavascript, color: 'text-[#F7DF1E]' },
+                { nombre: 'TypeScript', icono: SiTypescript, color: 'text-[#F7DF1E]' },
+              ].map((skill) => (
+                <span key={skill.nombre} className="flex items-center gap-2 px-4 py-2 bg-zinc-800 text-zinc-200 border border-zinc-700 rounded-full font-semibold shadow-sm hover:border-zinc-500 transition-colors cursor-default">
+                  <skill.icono className={`w-5 h-5 ${skill.color}`} />
+                  {skill.nombre}
+                </span>
+              ))}
+            </div>
+          </section>
 
-        {/* SECCIÓN: PROYECTOS */}
-        <section id="proyectos" className="scroll-mt-32">
-          <h2 className="text-2xl font-bold mb-6 text-zinc-100">{t.projects.title}</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* SECCIÓN: PROYECTOS */}
+          <section id="proyectos" className="scroll-mt-32">
+            <h2 className="text-2xl font-bold mb-6 text-zinc-100">{t.projects.title}</h2>
             
-            <div className="bg-zinc-800 rounded-xl shadow-md border border-zinc-700 overflow-hidden flex flex-col hover:border-zinc-500 transition-colors group">
-              <div className="w-full h-48 bg-zinc-900 overflow-hidden relative p-0 flex items-center justify-center">
-                <img src="/discordbotpython.png" alt="Bot Discord Gemini" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              </div>
-              <div className="p-6 flex flex-col grow">
-                <h3 className="text-xl font-bold mb-2 text-zinc-100">Bot Discord Gemini - <span className="text-indigo-400">Python</span></h3>
-                <p className="text-zinc-400 mb-4">{t.projects.p1Desc}</p>
-                <div className="mt-auto, flex flex-col gap-2">
-                  <a href="https://github.com/MasitasIA/Discord-Gemini-Bot" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-zinc-900 hover:bg-zinc-700 text-zinc-200 border border-zinc-600 px-4 py-2 rounded-lg font-medium transition-colors">
-                    <Github className="w-5 h-5" /> {t.projects.repo}
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-zinc-800 rounded-xl shadow-md border border-zinc-700 overflow-hidden flex flex-col hover:border-zinc-500 transition-colors group">
-              <div className="w-full h-48 bg-zinc-900 overflow-hidden relative p-2 flex items-center justify-center">
-                <img src="/chatglobo.png" alt="ChatGlobo" className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500" />
-              </div>
-              <div className="p-6 flex flex-col grow">
-                <h3 className="text-xl font-bold mb-2 text-zinc-100">ChatGlobo - <span className="text-indigo-400">Kotlin</span></h3>
-                <p className="text-zinc-400 mb-6 grow text-justify">{t.projects.p2Desc}</p>
-                <div className="mt-auto, flex flex-col gap-2">
-                  <a href="https://github.com/MasitasIA/ChatGlobo_Kotlin" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-zinc-900 hover:bg-zinc-700 text-zinc-200 border border-zinc-600 px-4 py-2 rounded-lg font-medium transition-colors">
-                    <Github className="w-5 h-5" /> {t.projects.repo}
-                  </a>
-                  <a href="https://hangar.papermc.io/MasitasIA/ChatGlobo" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-zinc-900 hover:bg-zinc-700 text-zinc-200 border border-zinc-600 px-4 py-2 rounded-lg font-medium transition-colors">
-                    <Play className="w-5 h-5" /> {t.projects.demo}
-                  </a>                  
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-zinc-800 rounded-xl shadow-md border border-zinc-700 overflow-hidden flex flex-col hover:border-zinc-500 transition-colors group">
-              <div className="w-full h-100 bg-zinc-900 overflow-hidden relative flex items-center justify-center">
-                <img src="/PORTADA.png" alt="Portafolio Personal / MasitasIA" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              </div>
-              <div className="p-6 flex flex-col grow">
-                <h3 className="text-xl font-bold mb-2 text-zinc-100">Portafolio Personal - <span className="text-indigo-400">TypeScript</span></h3>
-                <p className="text-zinc-400 mb-4">{t.projects.p3Desc}</p>
-                <div className="mt-auto, flex flex-col gap-2">
-                  <a href="https://github.com/MasitasIA/Portafolio-React-MasitasIA" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-zinc-900 hover:bg-zinc-700 text-zinc-200 border border-zinc-600 px-4 py-2 rounded-lg font-medium transition-colors">
-                    <Github className="w-5 h-5" /> {t.projects.repo}
-                  </a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-        
-        {/* SECCIÓN: EDUCACIÓN */}
-        <section id="educacion" className="scroll-mt-32">
-          <h2 className="text-2xl font-bold mb-4 text-zinc-100">{t.education.title}</h2>
-            <div className='bg-zinc-800 rounded-xl'>
-              <div className='p-6 border-b border-zinc-700'>
-                <h3 className='text-xl font-bold text-zinc-100'>{t.education.curr1}</h3>
-                <p className='text-zinc-400'>Teclab "Instituto Técnico Superior" - <b><span className="text-indigo-400">2025/PRESENTE</span></b></p>
-              </div>
-              <div className='p-6'>
-                <h3 className='text-xl font-bold text-zinc-100'>{t.education.curr2}</h3>
-                <p className='text-zinc-400'>Escuela Secundaria Nº5 "Coronel Marcelino E Freyre" - <b><span className="text-indigo-400">2019/2025</span></b></p>
-              </div>
-            </div>
-        </section>
-
-        {/* SECCIÓN: ESTADÍSTICAS */}
-        <section id="estadisticas" className="scroll-mt-32">
-          <h2 className="text-2xl font-bold mb-6 text-zinc-100">{t.stats.title}</h2>
-          
-          <div className="bg-zinc-800 rounded-xl shadow-md border border-zinc-700 p-8 hover:border-zinc-500 transition-colors">
-            <p className="text-zinc-400 mb-8 text-justify">{t.stats.desc}</p>
-            <div className="flex flex-col gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               
-              <div>
-                <div className="flex justify-between text-sm font-medium mb-2">
-                  <span className="text-zinc-200 flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-[#3572A5]"></span> Python</span>
-                  <span className="text-zinc-400">45%</span>
+              <div className="bg-zinc-800 rounded-xl shadow-md border border-zinc-700 overflow-hidden flex flex-col hover:border-zinc-500 transition-colors group">
+                <div className="w-full h-48 bg-zinc-900 overflow-hidden relative p-0 flex items-center justify-center">
+                  <img src="/discordbotpython.png" alt="Bot Discord Gemini" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
-                <div className="w-full bg-zinc-900 rounded-full h-2.5"><div className="bg-[#3572A5] h-2.5 rounded-full" style={{ width: '45%' }}></div></div>
+                <div className="p-6 flex flex-col grow">
+                  <h3 className="text-xl font-bold mb-2 text-zinc-100">Bot Discord Gemini - <span className="text-indigo-400">Python</span></h3>
+                  <p className="text-zinc-400 mb-4">{t.projects.p1Desc}</p>
+                  <div className="mt-auto flex flex-col gap-2">
+                    <a href="https://github.com/MasitasIA/Discord-Gemini-Bot" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-zinc-900 hover:bg-zinc-700 text-zinc-200 border border-zinc-600 px-4 py-2 rounded-lg font-medium transition-colors">
+                      <Github className="w-5 h-5" /> {t.projects.repo}
+                    </a>
+                  </div>
+                </div>
               </div>
 
-              <div>
-                <div className="flex justify-between text-sm font-medium mb-2">
-                  <span className="text-zinc-200 flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-[#3178C6]"></span> TypeScript</span>
-                  <span className="text-zinc-400">30%</span>
+              <div className="bg-zinc-800 rounded-xl shadow-md border border-zinc-700 overflow-hidden flex flex-col hover:border-zinc-500 transition-colors group">
+                <div className="w-full h-48 bg-zinc-900 overflow-hidden relative p-2 flex items-center justify-center">
+                  <img src="/chatglobo.png" alt="ChatGlobo" className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-500" />
                 </div>
-                <div className="w-full bg-zinc-900 rounded-full h-2.5"><div className="bg-[#3178C6] h-2.5 rounded-full" style={{ width: '30%' }}></div></div>
+                <div className="p-6 flex flex-col grow">
+                  <h3 className="text-xl font-bold mb-2 text-zinc-100">ChatGlobo - <span className="text-indigo-400">Kotlin</span></h3>
+                  <p className="text-zinc-400 mb-6 grow text-justify">{t.projects.p2Desc}</p>
+                  <div className="mt-auto flex flex-col xl:flex-row gap-2">
+                    <a href="https://github.com/MasitasIA/ChatGlobo_Kotlin" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full bg-zinc-900 hover:bg-zinc-700 text-zinc-200 border border-zinc-600 px-4 py-2 rounded-lg font-medium transition-colors">
+                      <Github className="w-5 h-5" /> {t.projects.repo}
+                    </a>
+                    <a href="https://hangar.papermc.io/MasitasIA/ChatGlobo" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full bg-zinc-900 hover:bg-zinc-700 text-zinc-200 border border-zinc-600 px-4 py-2 rounded-lg font-medium transition-colors">
+                      <Play className="w-5 h-5" /> {t.projects.demo}
+                    </a>                  
+                  </div>
+                </div>
               </div>
 
-              <div>
-                <div className="flex justify-between text-sm font-medium mb-2">
-                  <span className="text-zinc-200 flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-[#A97BFF]"></span> Kotlin</span>
-                  <span className="text-zinc-400">15%</span>
+              <div className="bg-zinc-800 rounded-xl shadow-md border border-zinc-700 overflow-hidden flex flex-col hover:border-zinc-500 transition-colors group">
+                <div className="w-full h-48 bg-zinc-900 overflow-hidden relative flex items-center justify-center">
+                  <img src="/PORTADA.png" alt="Portafolio Personal / MasitasIA" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
-                <div className="w-full bg-zinc-900 rounded-full h-2.5"><div className="bg-[#A97BFF] h-2.5 rounded-full" style={{ width: '15%' }}></div></div>
-              </div>
-
-              <div>
-                <div className="flex justify-between text-sm font-medium mb-2">
-                  <span className="text-zinc-200 flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-[#563D7C]"></span> CSS / Tailwind</span>
-                  <span className="text-zinc-400">10%</span>
+                <div className="p-6 flex flex-col grow">
+                  <h3 className="text-xl font-bold mb-2 text-zinc-100">Portafolio Personal - <span className="text-indigo-400">TypeScript</span></h3>
+                  <p className="text-zinc-400 mb-4">{t.projects.p3Desc}</p>
+                  <div className="mt-auto flex flex-col gap-2">
+                    <a href="https://github.com/MasitasIA/Portafolio-React-MasitasIA" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full sm:w-auto bg-zinc-900 hover:bg-zinc-700 text-zinc-200 border border-zinc-600 px-4 py-2 rounded-lg font-medium transition-colors">
+                      <Github className="w-5 h-5" /> {t.projects.repo}
+                    </a>
+                  </div>
                 </div>
-                <div className="w-full bg-zinc-900 rounded-full h-2.5"><div className="bg-[#563D7C] h-2.5 rounded-full" style={{ width: '10%' }}></div></div>
               </div>
 
             </div>
-          </div>
-        </section>
+          </section>
+          
+          {/* SECCIÓN: EDUCACIÓN */}
+          <section id="educacion" className="scroll-mt-32">
+            <h2 className="text-2xl font-bold mb-4 text-zinc-100">{t.education.title}</h2>
+              <div className='bg-zinc-800 rounded-xl'>
+                <div className='p-6 border-b border-zinc-700'>
+                  <h3 className='text-xl font-bold text-zinc-100'>{t.education.curr1}</h3>
+                  <p className='text-zinc-400'>Teclab "Instituto Técnico Superior" - <b><span className="text-indigo-400">2025/PRESENTE</span></b></p>
+                </div>
+                <div className='p-6'>
+                  <h3 className='text-xl font-bold text-zinc-100'>{t.education.curr2}</h3>
+                  <p className='text-zinc-400'>Escuela Secundaria Nº5 "Coronel Marcelino E Freyre" - <b><span className="text-indigo-400">2019/2025</span></b></p>
+                </div>
+              </div>
+          </section>
 
-      </main>
+          {/* SECCIÓN: ESTADÍSTICAS */}
+          <section id="estadisticas" className="scroll-mt-32">
+            <h2 className="text-2xl font-bold mb-6 text-zinc-100">{t.stats.title}</h2>
+            
+            <div className="bg-zinc-800 rounded-xl shadow-md border border-zinc-700 p-8 hover:border-zinc-500 transition-colors">
+              <p className="text-zinc-400 mb-8 text-justify">{t.stats.desc}</p>
+              <div className="flex flex-col gap-6">
+                
+                <div>
+                  <div className="flex justify-between text-sm font-medium mb-2">
+                    <span className="text-zinc-200 flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-[#3572A5]"></span> Python</span>
+                    <span className="text-zinc-400">45%</span>
+                  </div>
+                  <div className="w-full bg-zinc-900 rounded-full h-2.5"><div className="bg-[#3572A5] h-2.5 rounded-full" style={{ width: '45%' }}></div></div>
+                </div>
 
-      {/* FOOTER */}
-      <footer className="bg-zinc-950 text-center py-6 border-t border-zinc-800">
-        <p className="text-sm text-zinc-500">{t.footer}</p>
-      </footer>
+                <div>
+                  <div className="flex justify-between text-sm font-medium mb-2">
+                    <span className="text-zinc-200 flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-[#3178C6]"></span> TypeScript</span>
+                    <span className="text-zinc-400">30%</span>
+                  </div>
+                  <div className="w-full bg-zinc-900 rounded-full h-2.5"><div className="bg-[#3178C6] h-2.5 rounded-full" style={{ width: '30%' }}></div></div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between text-sm font-medium mb-2">
+                    <span className="text-zinc-200 flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-[#A97BFF]"></span> Kotlin</span>
+                    <span className="text-zinc-400">15%</span>
+                  </div>
+                  <div className="w-full bg-zinc-900 rounded-full h-2.5"><div className="bg-[#A97BFF] h-2.5 rounded-full" style={{ width: '15%' }}></div></div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between text-sm font-medium mb-2">
+                    <span className="text-zinc-200 flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-[#563D7C]"></span> CSS / Tailwind</span>
+                    <span className="text-zinc-400">10%</span>
+                  </div>
+                  <div className="w-full bg-zinc-900 rounded-full h-2.5"><div className="bg-[#563D7C] h-2.5 rounded-full" style={{ width: '10%' }}></div></div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+        </main>
+
+        {/* FOOTER */}
+        <footer className="bg-zinc-950 text-center py-6 border-t border-zinc-800">
+          <p className="text-sm text-zinc-500">{t.footer}</p>
+        </footer>
+      </div>
 
     </div>
   )
