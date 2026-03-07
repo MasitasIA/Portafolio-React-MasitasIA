@@ -86,9 +86,10 @@ export default function App() {
         <PixelSnow 
           color="#ffffff" 
           speed={1.25} 
-          pixelResolution={500} 
-          density={0.3}
-          variant="snowflake" 
+          pixelResolution={200} 
+          density={0.1}
+          flakeSize={0.05}
+          variant="square" 
         />
       </div>
 
