@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './index.css'
 
 import { SiReact, SiVite, SiTailwindcss, SiPython, SiDjango, SiKotlin, SiHtml5, SiCss3, SiJavascript, SiTypescript} from 'react-icons/si'
@@ -70,13 +70,29 @@ const translations = {
 type Lang = 'es' | 'en' | 'it'
 
 export default function App() {
+  // ESTADO PARA CONTROLAR EL MENÚ MÓVIL
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   
+  // ESTADO PARA CONTROLAR EL IDIOMA SELECCIONADO
   const [lang, setLang] = useState<Lang>('es')
-  
   const t = translations[lang]
 
+  // FUNCIÓN PARA CERRAR EL MENÚ MÓVIL AL HACER CLICK EN UN ENLACE
   const closeMenu = () => setIsMenuOpen(false)
+
+  // ESTADO PARA DETECTAR SI ESTAMOS EN MÓVIL
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth < 768)
+      }
+      
+      handleResize()
+      window.addEventListener('resize', handleResize)
+      
+      return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
   return (
     <div className="bg-zinc-900 text-zinc-100 font-sans min-h-screen relative">
@@ -86,9 +102,10 @@ export default function App() {
         <PixelSnow 
           color="#ffffff" 
           speed={1.25} 
-          pixelResolution={200} 
-          density={0.1}
-          flakeSize={0.05}
+          pixelResolution={isMobile ? 100 : 200} 
+          density={isMobile ? 0.03 : 0.1}
+          flakeSize={isMobile ? 0.08 : 0.05}
+          farPlane={isMobile ? 10 : 20}
           variant="square" 
         />
       </div>
