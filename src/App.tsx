@@ -109,6 +109,8 @@ export default function App() {
 
       <meta property="og:title" content="MasitasIA | Nereo Schmidt" />
       <meta property="og:description" content="Portafolio de desarrollo web con React y TypeScript." />
+
+      <meta name="google-site-verification" content="md8yOTBKAG12eMelZRFzhoxdRVbaZyt7OGM2BIz4fug" />
     </Helmet>
 
     <div className="bg-zinc-900 text-zinc-100 font-sans min-h-screen relative">
