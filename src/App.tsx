@@ -5,6 +5,8 @@ import { SiReact, SiVite, SiTailwindcss, SiPython, SiDjango, SiKotlin, SiHtml5, 
 import { FaDatabase } from 'react-icons/fa'
 import { Github, Mail, MessageCircle, Linkedin, Menu, X, Globe, Play} from 'lucide-react'
 
+import { Helmet } from "react-helmet-async";
+
 // IMPORTAMOS EL COMPONENTE DE NIEVE
 import PixelSnow from './PixelSnow.tsx'
 
@@ -95,6 +97,20 @@ export default function App() {
     }, [])
 
   return (
+
+  <>
+    <Helmet>
+      <title>MasitasIA | Nereo Schmidt - Portafolio Personal</title>
+      <meta
+        name="description"
+        content="Portafolio de Nereo Schmidt. Desarrollador web con React, Python y TypeScript."
+      />
+      <meta name="author" content="Nereo Schmidt" />
+
+      <meta property="og:title" content="MasitasIA | Nereo Schmidt" />
+      <meta property="og:description" content="Portafolio de desarrollo web con React y TypeScript." />
+    </Helmet>
+
     <div className="bg-zinc-900 text-zinc-100 font-sans min-h-screen relative">
       
       {/* --- EFECTO DE FONDO: PIXEL SNOW --- */}
@@ -236,7 +252,7 @@ export default function App() {
               
               <div className="bg-zinc-800 rounded-xl shadow-md border border-zinc-700 overflow-hidden flex flex-col hover:border-zinc-500 transition-colors group">
                 <div className="w-full h-48 bg-zinc-900 overflow-hidden relative p-0 flex items-center justify-center">
-                  <img src="/discordbotpython.png" alt="Bot Discord Gemini" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src="/discordbotpython.png" alt="Bot Discord Gemini desarrollado en Python" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6 flex flex-col grow">
                   <h3 className="text-xl font-bold mb-2 text-zinc-100">Bot Discord Gemini - <span className="text-indigo-400">Python</span></h3>
@@ -353,5 +369,6 @@ export default function App() {
       </div>
 
     </div>
+  </>
   )
 }
